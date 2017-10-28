@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/dianping.iml" filepath="$PROJECT_DIR$/dianping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/dianping.iml" filepath="$PROJECT_DIR$/src/dianping.iml" />
     </modules>
   </component>
 </project>
