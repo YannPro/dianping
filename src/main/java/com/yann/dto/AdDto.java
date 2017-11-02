@@ -28,5 +28,4 @@ public class AdDto extends Ad {
         this.imgFile = imgFile;
     }
 
-
 }
