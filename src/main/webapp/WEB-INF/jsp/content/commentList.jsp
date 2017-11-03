@@ -11,9 +11,9 @@
 		<script type="text/javascript" src="/js/content/adList.js"></script>
 	</head>
 	<body style="background: #e1e9eb;">
-		<form action="http://127.0.0.1:8081/comment/ad/search" id="mainForm" method="post">
+		<form action="/comment/ad/search" id="mainForm" method="post">
 			<input id="id" name="id" type="hidden">
-			<input id="basePath" value="http://127.0.0.1:8081/comment" type="hidden">
+			<input id="basePath" value="/comment" type="hidden">
 			<input name="page.currentPage" id="currentPage" value="1" type="hidden">
 			<div class="right">
 				<div class="current">当前位置：<a href="#">内容管理</a> &gt; 评论查询</div>

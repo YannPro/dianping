@@ -39,6 +39,7 @@ public class AdServiceImpl implements AdService{
                 adDao.insert(ad);
                 return true;
             } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }else {
