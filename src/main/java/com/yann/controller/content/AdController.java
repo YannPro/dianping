@@ -1,5 +1,6 @@
 package com.yann.controller.content;
 
+import com.yann.constant.PageCodeEnum;
 import com.yann.dto.AdDto;
 import com.yann.service.AdService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class AdController {
 	 * 广告管理页初始化(点广告管理菜单进入的第一个页面)
 	 */
 	@RequestMapping("/index")
-	public String init(Model model, HttpServletRequest request) {
+	public String init(Model model) {
 		AdDto adDto = new AdDto();
 		model.addAttribute("list", adService.searchByPage(adDto));
 		model.addAttribute("searchParam", adDto);
@@ -34,6 +35,8 @@ public class AdController {
 	@RequestMapping("/search")
 	public String search(Model model, AdDto adDto) {
 		model.addAttribute("list", adService.searchByPage(adDto));
+		System.out.println(adService.searchByPage(adDto));
+		System.out.println("当前页数："+adDto.getPage().getCurrentPage());
 		model.addAttribute("searchParam", adDto);
 		return "/content/adList";
 	}
@@ -51,8 +54,12 @@ public class AdController {
 	 */
 	@RequestMapping("/add")
 	public String add(AdDto adDto, Model model) {
-		Boolean flag = adService.add(adDto);
-		System.out.println("result:"+flag);
+		boolean flag = adService.add(adDto);
+		if(flag){
+			model.addAttribute(PageCodeEnum.KEY,PageCodeEnum.ADD_SUCCESS);
+		}else {
+			model.addAttribute(PageCodeEnum.KEY,PageCodeEnum.ADD_FAIL);
+		}
 		return "/content/adAdd";
 	}
 
