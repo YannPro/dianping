@@ -88,20 +88,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/js/system/auth.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/js/system/index.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/js/system/login.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/dianping_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/dianping_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dianping.iml" afterPath="$PROJECT_DIR$/src/dianping.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/controller/content/AdController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/controller/content/AdController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/entity/Ad.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/entity/Ad.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/entity/BaseBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/entity/BaseBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/service/impl/AdServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/service/impl/AdServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/AdMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AdMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/properties/service.properties" afterPath="$PROJECT_DIR$/src/main/resources/properties/service.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/adList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/adList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/businessAdd.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/businessAdd.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/businessList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/businessList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/businessModify.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/businessModify.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pom.xml" afterPath="$PROJECT_DIR$/src/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/classes/properties/service.properties" afterPath="$PROJECT_DIR$/src/target/classes/properties/service.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/classes/spring/applicationContext-web.xml" afterPath="$PROJECT_DIR$/src/target/classes/spring/applicationContext-web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
@@ -164,7 +151,7 @@
       <file leaf-file-name="PageInterceptor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/yann/dao/interceptor/PageInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
+            <state relative-caret-position="171">
               <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -750,7 +737,7 @@
       <workItem from="1509678410596" duration="737000" />
       <workItem from="1509679887831" duration="1624000" />
       <workItem from="1509686841633" duration="1829000" />
-      <workItem from="1509705337133" duration="8544000" />
+      <workItem from="1509705337133" duration="8559000" />
     </task>
     <task id="LOCAL-00001" summary="dianping">
       <created>1509167314549</created>
@@ -773,11 +760,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509688066433</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="dianping">
+      <created>1509715307695</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1509715307695</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38355000" />
+    <option name="totallyTimeSpent" value="38370000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1254,7 +1248,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yann/dao/interceptor/PageInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
+        <state relative-caret-position="171">
           <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
