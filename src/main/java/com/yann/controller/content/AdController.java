@@ -21,7 +21,7 @@ public class AdController {
 	/**
 	 * 广告管理页初始化(点广告管理菜单进入的第一个页面)
 	 */
-	@RequestMapping("/index")
+	@RequestMapping
 	public String init(Model model) {
 		AdDto adDto = new AdDto();
 		model.addAttribute("list", adService.searchByPage(adDto));
@@ -35,12 +35,23 @@ public class AdController {
 	@RequestMapping("/search")
 	public String search(Model model, AdDto adDto) {
 		model.addAttribute("list", adService.searchByPage(adDto));
-		System.out.println(adService.searchByPage(adDto));
 		System.out.println("当前页数："+adDto.getPage().getCurrentPage());
 		model.addAttribute("searchParam", adDto);
 		return "/content/adList";
 	}
 
+	/**
+	 * 删除
+	 */
+	@RequestMapping("/remove")
+	public String remove(@RequestParam("id") Long id,Model model) {
+		if(adService.remove(id)) {
+			model.addAttribute(PageCodeEnum.KEY, PageCodeEnum.REMOVE_SUCCESS);
+		} else {
+			model.addAttribute(PageCodeEnum.KEY, PageCodeEnum.REMOVE_FAIL);
+		}
+		return "forward:/ad";
+	}
 	/**
 	 * 新增页初始化
 	 */
@@ -68,6 +79,7 @@ public class AdController {
 	 */
 	@RequestMapping("/modifyInit")
 	public String modifyInit(Model model, @RequestParam("id") Long id) {
+		System.out.println(adService.getById(id).toString());
 		model.addAttribute("modifyObj", adService.getById(id));
 		return "/content/adModify";
 	}

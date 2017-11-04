@@ -4,13 +4,15 @@ import com.yann.dao.AdDao;
 import com.yann.dto.AdDto;
 import com.yann.entity.Ad;
 import com.yann.service.AdService;
+import com.yann.util.FileUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,6 +23,9 @@ public class AdServiceImpl implements AdService{
 
     @Value("${adImage.savePath}")
     private String adImageSavePath;
+
+    @Value("${adImage.url}")
+    private String adImageUrl;
     public boolean add(AdDto adDto) {
         Ad ad = new Ad();
         ad.setTitle(adDto.getTitle());
@@ -48,18 +53,55 @@ public class AdServiceImpl implements AdService{
     }
 
     public List<AdDto> searchByPage(AdDto adDto) {
-        return null;
+        List<AdDto> result = new ArrayList<AdDto>();
+        Ad condition = new Ad();
+        //用反射机制将Ad的部分属性拷贝到AdDto中
+        BeanUtils.copyProperties(adDto, condition);
+        List<Ad> adList = adDao.selectByPage(condition);
+        System.out.println(adList.get(0).toString());
+        for (Ad ad : adList) {
+            AdDto adDtoTemp = new AdDto();
+            result.add(adDtoTemp);
+            adDtoTemp.setImg(adImageUrl + ad.getImgFileName());
+            BeanUtils.copyProperties(ad, adDtoTemp);
+        }
+        return result;
     }
 
     public boolean remove(Long id) {
-        return false;
+        return adDao.delete(id)>=1?true:false;
     }
 
     public AdDto getById(Long id) {
-        return null;
+        AdDto result = new AdDto();
+        Ad ad = adDao.selectById(id);
+        System.out.println("service"+ad.toString());
+        BeanUtils.copyProperties(ad, result);
+        result.setImg(adImageUrl + ad.getImgFileName());
+        return result;
     }
 
     public boolean modify(AdDto adDto) {
-        return false;
+/*        Ad ad = new Ad();
+        BeanUtils.copyProperties(adDto, ad);
+        String fileName = null;
+        if (adDto.getImgFile() != null && adDto.getImgFile().getSize() > 0) {
+            try {
+                fileName = FileUtil.save(adDto.getImgFile(), adImageSavePath);
+                ad.setImgFileName(fileName);
+            } catch (Exception e) {
+                // TODO 需要添加日志
+                e.printStackTrace();
+                return false;
+            }
+        }
+        int updateCount = adDao.update(ad);
+        if (updateCount != 1) {
+            return false;
+        }
+        if (fileName != null) {
+            return FileUtil.delete(adImageSavePath + adDto.getImgFileName());
+        }*/
+        return true;
     }
 }

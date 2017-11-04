@@ -8,6 +8,7 @@
 		if(!rule.test(currentPage)) {
 			currentPage = 1;
 		}
+		//对字符串中的东西进行运算
 		eval("${jsMethodName}(currentPage)");
 	}
 </script>

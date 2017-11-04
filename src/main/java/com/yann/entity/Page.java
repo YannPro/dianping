@@ -51,7 +51,6 @@ public class Page {
 		this.currentPage = currentPage;
 	}
 	public int getTotalPage() {
-		
 		return totalPage;
 	}
 	public void setTotalPage(int totalPage) {

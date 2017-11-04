@@ -40,4 +40,9 @@ public class Ad extends BaseBean{
     public void setWeight(Long weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Ad[id:"+this.id+",title:"+this.title+",imgFileName:"+this.imgFileName+",link:"+this.link+",weight:"+this.weight+"]";
+    }
 }
