@@ -47,5 +47,9 @@ public class Menu {
 	public void setActionList(List<Action> actionList) {
 		this.actionList = actionList;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Menu[id:"+this.id+",name:"+this.name+",url:"+this.url+",parentId:"+this.parentId+",orderNum:"+this.orderNum+"]";
+	}
 }

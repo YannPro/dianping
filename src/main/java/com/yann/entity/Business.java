@@ -107,4 +107,9 @@ public class Business extends BaseBean {
 	public void setCommentTotalNum(Long commentTotalNum) {
 		this.commentTotalNum = commentTotalNum;
 	}
+    @Override
+    public String toString() {
+        return "Ad[id:"+this.id+",title:"+this.title+",imgFileName:"+this.imgFileName+",subtitle:"+this.subtitle
+                +",price:"+this.price+",distance:"+this.distance+",number:"+this.number+",city:"+this.city+"]";
+    }
 }

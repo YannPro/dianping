@@ -52,6 +52,7 @@ public class BusinessServiceImpl implements BusinessService {
 			BeanUtils.copyProperties(business, businessDtoTemp);
 			businessDtoTemp.setImg(url + business.getImgFileName());
 			businessDtoTemp.setStar(this.getStar(business));
+			System.out.println("service:"+businessDtoTemp.toString());
 		}
 		return result;
 	}

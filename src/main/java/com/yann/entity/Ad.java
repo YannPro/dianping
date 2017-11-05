@@ -43,6 +43,6 @@ public class Ad extends BaseBean{
 
     @Override
     public String toString() {
-        return "Ad[id:"+this.id+",title:"+this.title+",imgFileName:"+this.imgFileName+",link:"+this.link+",weight:"+this.weight+"]";
+        return "Bussiness[id:"+this.id+",title:"+this.title+",imgFileName:"+this.imgFileName+",link:"+this.link+",weight:"+this.weight+"]";
     }
 }

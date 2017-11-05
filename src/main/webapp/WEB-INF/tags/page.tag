@@ -9,8 +9,10 @@
 			currentPage = 1;
 		}
 		//对字符串中的东西进行运算
+		console.log("dasjhdajksdhjkashdjkas");
 		eval("${jsMethodName}(currentPage)");
 	}
+	console.log(13123)
 </script>
 
 <div class="page fix">

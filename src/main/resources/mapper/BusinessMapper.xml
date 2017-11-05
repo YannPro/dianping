@@ -3,26 +3,6 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yann.dao.BusinessDao">
-	<resultMap type="com.yann.entity.Business" id="BusinessResultMap">
-		<id column="id" property="id" />
-		<result column="img_file_name" property="imgFileName" />
-		<result column="title" property="title" />
-		<result column="subtitle" property="subtitle" />
-		<result column="price" property="price" />
-		<result column="distance" property="distance" />
-		<result column="number" property="number" />
-		<result column="desc" property="desc" />
-		<result column="city" property="city" />
-		<result column="category" property="category" />
-		<result column="star_total_num" property="starTotalNum" />
-		<result column="comment_total_num" property="commentTotalNum" />
-		<association property="cityDic" javaType="com.yann.entity.Dic">
-			<result column="city_name" property="name"/>
-		</association>
-		<association property="categoryDic" javaType="com.yann.entity.Dic">
-			<result column="category_name" property="name"/>
-		</association>
-	</resultMap>
 	<select id="selectById" resultType="com.yann.entity.Business">
 		select
 		id,img_file_name,title,subtitle,price,distance,number,`desc`,city,category,star_total_num,comment_total_num
@@ -78,4 +58,27 @@
 		</where>
 		order by id
 	</select>
+	<delete id="deleteById">
+		delete from sys_action where id = #{_parameter}
+	</delete>
+	<resultMap type="com.yann.entity.Business" id="BusinessResultMap">
+		<id column="id" property="id" />
+		<result column="img_file_name" property="imgFileName" />
+		<result column="title" property="title" />
+		<result column="subtitle" property="subtitle" />
+		<result column="price" property="price" />
+		<result column="distance" property="distance" />
+		<result column="number" property="number" />
+		<result column="desc" property="desc" />
+		<result column="city" property="city" />
+		<result column="category" property="category" />
+		<result column="star_total_num" property="starTotalNum" />
+		<result column="comment_total_num" property="commentTotalNum" />
+		<association property="cityDic" javaType="com.yann.entity.Dic">
+			<result column="city_name" property="name"/>
+		</association>
+		<association property="categoryDic" javaType="com.yann.entity.Dic">
+			<result column="category_name" property="name"/>
+		</association>
+	</resultMap>
 </mapper>

@@ -29,6 +29,7 @@ public class BusinessesController {
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String search(Model model, BusinessDto dto) {
+		System.out.println(businessService.searchByPage(dto).get(0).toString());
 		model.addAttribute("list", businessService.searchByPage(dto));
 		model.addAttribute("searchParam", dto);
 		return "/content/businessList";
@@ -71,6 +72,8 @@ public class BusinessesController {
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String modifyInit(Model model, @PathVariable("id") Long id) {
+		System.out.println(dicService.getListByType(DicTypeConst.CITY).get(0).toString());
+		System.out.println(dicService.getListByType(DicTypeConst.CATEGORY).get(0).toString());
 		model.addAttribute("cityList", dicService.getListByType(DicTypeConst.CITY));
 		model.addAttribute("categoryList", dicService.getListByType(DicTypeConst.CATEGORY));
 		model.addAttribute("modifyObj", businessService.getById(id));
@@ -82,7 +85,7 @@ public class BusinessesController {
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public String modify(@PathVariable("id") Long id, BusinessDto dto) {
-		System.out.println(id);
+		System.out.println("controller---id:"+id+","+dto.toString());
 		return "/content/businessModify";
 	}
 }
