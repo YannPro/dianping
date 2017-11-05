@@ -82,7 +82,8 @@ public class AdServiceImpl implements AdService{
     }
 
     public boolean modify(AdDto adDto) {
-/*        Ad ad = new Ad();
+        System.out.println("yjy:"+adDto.getImg());
+        Ad ad = new Ad();
         BeanUtils.copyProperties(adDto, ad);
         String fileName = null;
         if (adDto.getImgFile() != null && adDto.getImgFile().getSize() > 0) {
@@ -101,7 +102,7 @@ public class AdServiceImpl implements AdService{
         }
         if (fileName != null) {
             return FileUtil.delete(adImageSavePath + adDto.getImgFileName());
-        }*/
+        }
         return true;
     }
 }

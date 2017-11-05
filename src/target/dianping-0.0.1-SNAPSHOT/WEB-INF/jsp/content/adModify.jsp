@@ -34,6 +34,7 @@
 							<td width="30%">
 								<a href="${modifyObj.img}">查看图片</a>
 								<input type="hidden" name="img" value="${modifyObj.img}"/>
+								<input type="hidden" name="imgFileName" value="${modifyObj.imgFileName}"/>
 								<input id="imgFile" name="imgFile" class="allInput" style="width:100%;" type="file"/>
 							</td>
 						</tr>
