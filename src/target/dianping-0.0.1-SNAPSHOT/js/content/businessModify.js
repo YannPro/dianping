@@ -1,3 +1,6 @@
 function modify() {
-	$("#mainForm").submit();
+    $("#mainForm").attr("method", "PUT");
+    console.log($("#mainForm").attr("method"));
+    console.log($("#mainForm").attr("action"));
+    $("#mainForm").submit();
 }

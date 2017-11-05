@@ -13,7 +13,7 @@
         		while(topWindow.parent != topWindow) {
         			topWindow = topWindow.parent;
         		}
-        		topWindow.location.href = "${basePath}/login";
+        		topWindow.location.href = "/login";
         	});
 		</script>
     </head>
