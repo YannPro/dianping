@@ -98,6 +98,31 @@ public class BusinessServiceImpl implements BusinessService {
 		return result;
 	}
 
+	public boolean modify(BusinessDto businessDto) {
+		System.out.println("service:"+businessDto.toString());
+		Business business = new Business();
+		BeanUtils.copyProperties(businessDto, business);
+		String fileName = null;
+		if (businessDto.getImgFile() != null && businessDto.getImgFile().getSize() > 0) {
+			try {
+				fileName = FileUtil.save(businessDto.getImgFile(), savePath);
+				business.setImgFileName(fileName);
+			} catch (Exception e) {
+				// TODO 需要添加日志
+				e.printStackTrace();
+				return false;
+			}
+		}
+		int updateCount = businessDao.update(business);
+		if (updateCount != 1) {
+			return false;
+		}
+		if (fileName != null) {
+			return FileUtil.delete(savePath + businessDto.getImgFileName());
+		}
+		return true;
+	}
+
 	public boolean add(BusinessDto businessDto) {
 		Business business = new Business();
 		BeanUtils.copyProperties(businessDto, business);
