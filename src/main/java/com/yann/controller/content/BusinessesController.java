@@ -72,8 +72,9 @@ public class BusinessesController {
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String modifyInit(Model model, @PathVariable("id") Long id) {
-		System.out.println(dicService.getListByType(DicTypeConst.CITY).get(0).toString());
-		System.out.println(dicService.getListByType(DicTypeConst.CATEGORY).get(0).toString());
+		///System.out.println(dicService.getListByType(DicTypeConst.CITY).get(0).toString());
+		//System.out.println(dicService.getListByType(DicTypeConst.CATEGORY).get(0).toString());
+		System.out.println("modifyInit:"+businessService.getById(id).toString());
 		model.addAttribute("cityList", dicService.getListByType(DicTypeConst.CITY));
 		model.addAttribute("categoryList", dicService.getListByType(DicTypeConst.CATEGORY));
 		model.addAttribute("modifyObj", businessService.getById(id));
@@ -84,8 +85,14 @@ public class BusinessesController {
 	 * 商户修改
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public String modify(@PathVariable("id") Long id, BusinessDto dto) {
+	public String modify(@PathVariable("id") Long id, BusinessDto dto,Model model) {
 		System.out.println("controller---id:"+id+","+dto.toString());
+		model.addAttribute("modifyObj", dto);
+		if (businessService.modify(dto)) {
+			model.addAttribute(PageCodeEnum.KEY, PageCodeEnum.MODIFY_SUCCESS);
+		} else {
+			model.addAttribute(PageCodeEnum.KEY, PageCodeEnum.MODIFY_FAIL);
+		}
 		return "/content/businessModify";
 	}
 }

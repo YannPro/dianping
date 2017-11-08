@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yann.dao.BusinessDao">
-	<select id="selectById" resultType="com.yann.entity.Business">
+	<select id="selectById" resultType="com.yann.entity.Business" resultMap="BusinessResultMap">
 		select
 		id,img_file_name,title,subtitle,price,distance,number,`desc`,city,category,star_total_num,comment_total_num
 		from business where id=#{_parameter}
@@ -39,7 +39,7 @@
 		order by id
 	</select>
 
-	<select id="selectLikeByPage" resultType="com.yann.entity.Business">
+	<select id="selectLikeByPage" resultType="com.yann.entity.Business" resultMap="BusinessResultMap">
 		select id,img_file_name,title,subtitle,price,distance,number,`desc`,city,category,star_total_num,comment_total_num
 		from business
 		<where>
@@ -58,6 +58,46 @@
 		</where>
 		order by id
 	</select>
+	<update id="update">
+		update business
+		<set>
+			<if test="title != null">
+				title = #{title},
+			</if>
+			<if test="imgFileName != null">
+				img_file_name = #{imgFileName},
+			</if>
+			<if test="subtitle != null">
+				subtitle = #{subtitle},
+			</if>
+			<if test="price != null">
+				price = #{price},
+			</if>
+			<if test="distance != null">
+				distance = #{distance},
+			</if>
+			<if test="number != null">
+				`number` = #{number},
+			</if>
+			<if test="desc != null">
+				`desc` = #{desc},
+			</if>
+			<if test="city != null">
+				city = #{city},
+			</if>
+			<if test="category != null">
+				category = #{category},
+			</if>
+			<if test="starTotalNum != null">
+				star_total_num = #{starTotalNum},
+			</if>
+			<if test="commentTotalNum != null">
+				comment_total_num = #{commentTotalNum},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+
 	<delete id="deleteById">
 		delete from sys_action where id = #{_parameter}
 	</delete>

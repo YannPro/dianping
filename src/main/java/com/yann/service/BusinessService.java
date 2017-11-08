@@ -34,4 +34,11 @@ public interface BusinessService {
      * @return 商户列表Dto对象
      */
     BusinessListDto searchByPageForApi(BusinessDto businessDto);
+
+    /**
+     * 修改商户
+     * @param businessDto
+     * @return 是否修改成功：true-成功;fale-失败
+     */
+    boolean modify(BusinessDto businessDto);
 }

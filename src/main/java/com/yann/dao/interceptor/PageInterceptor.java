@@ -17,6 +17,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+/**
+ * 分页拦截器
+ */
 @Intercepts({@Signature(type=StatementHandler.class,method="prepare",args={Connection.class})})
 public class PageInterceptor implements Interceptor{
 

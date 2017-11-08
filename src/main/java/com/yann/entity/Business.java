@@ -109,7 +109,7 @@ public class Business extends BaseBean {
 	}
     @Override
     public String toString() {
-        return "Ad[id:"+this.id+",title:"+this.title+",imgFileName:"+this.imgFileName+",subtitle:"+this.subtitle
+        return "Bussiness[id:"+this.id+",title:"+this.title+",imgFileName:"+this.imgFileName+",subtitle:"+this.subtitle
                 +",price:"+this.price+",distance:"+this.distance+",number:"+this.number+",city:"+this.city+"]";
     }
 }

@@ -79,7 +79,6 @@ public class AdController {
 	 */
 	@RequestMapping("/modifyInit")
 	public String modifyInit(Model model, @RequestParam("id") Long id) {
-		System.out.println(adService.getById(id).toString());
 		model.addAttribute("modifyObj", adService.getById(id));
 		return "/content/adModify";
 	}

@@ -39,7 +39,20 @@ public interface BusinessDao {
      * @return 商户列表
      */
     List<Business> selectLikeByPage(Business business);
-    
+
+    /**
+     * 根据主键修改
+     * @param business 待修改的广告对象
+     * @return 影响行数
+     */
+    int update(Business business);
+
+    /**
+     * 根据主键删除
+     * @param id 主键
+     * @return 影响行数
+     */
+    int delete(Long id);
     /**
      * 更新商户的【统计评论星星总数】、【统计评论总次数】，商户的【星级】用这两个字段数据计算得出
      * @param map

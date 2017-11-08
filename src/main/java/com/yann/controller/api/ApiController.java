@@ -2,15 +2,22 @@ package com.yann.controller.api;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import com.yann.dto.AdDto;
+import com.yann.dto.BusinessDto;
+import com.yann.dto.BusinessListDto;
 import com.yann.entity.Ad;
+import com.yann.entity.Page;
 import com.yann.service.AdService;
+import com.yann.service.BusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,8 +35,17 @@ public class ApiController {
     @Autowired
     private AdService adService;
 
+    @Resource
+    private BusinessService businessService;
+
     @Value("${ad.number}")
     private int adNumber;
+
+    @Value("${businessHome.number}")
+    private int businessHomeNumber;
+
+    @Value("${businessSearch.number}")
+    private int businessSearchNumber;
 
     /**
      * 首页 —— 广告（超值特惠）
@@ -39,6 +55,41 @@ public class ApiController {
         AdDto adDto = new AdDto();
         adDto.getPage().setPageNumber(adNumber);
         return adService.searchByPage(adDto);
+    }
+
+    /**
+     * 首页 —— 推荐列表（猜你喜欢）
+     */
+    @RequestMapping(value = "/homelist/{city}/{page.currentPage}", method = RequestMethod.GET)
+    public BusinessListDto homelist(@PathVariable String city, BusinessDto businessDto) {
+        System.out.println("@PathVariable:"+city+","+businessDto.getPage().getCurrentPage());
+        System.out.println("apihomelist:"+businessDto.toString());
+        businessDto.getPage().setPageNumber(businessHomeNumber);
+        return businessService.searchByPageForApi(businessDto);
+    }
+    /**
+     * 搜索结果页 - 搜索结果 - 三个参数
+     */
+    @RequestMapping(value = "/search/{page.currentPage}/{city}/{category}/{keyword}", method = RequestMethod.GET)
+    public BusinessListDto searchByKeyword(BusinessDto businessDto) {
+        businessDto.getPage().setPageNumber(businessSearchNumber);
+        return businessService.searchByPageForApi(businessDto);
+    }
+
+    /**
+     * 搜索结果页 - 搜索结果 - 两个参数
+     */
+    @RequestMapping(value = "/search/{page.currentPage}/{city}/{category}", method = RequestMethod.GET)
+    public BusinessListDto search(BusinessDto businessDto) {
+        businessDto.getPage().setPageNumber(businessSearchNumber);
+        return businessService.searchByPageForApi(businessDto);
+    }
+    /**
+     * 详情页 - 商户信息
+     */
+    @RequestMapping(value = "/detail/info/{id}", method = RequestMethod.GET)
+    public BusinessDto detail(@PathVariable("id") Long id) {
+        return businessService.getById(id);
     }
 
 /*    @RequestMapping(value = "/homead",method = RequestMethod.GET)
