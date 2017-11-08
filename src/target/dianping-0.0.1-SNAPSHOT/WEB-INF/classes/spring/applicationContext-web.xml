@@ -17,11 +17,6 @@
     <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>
     <mvc:resources mapping="/css/**" location="/css/" cache-period="31556926"/>
 
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- 指定所上传文件的总大小不能超过20M。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
-        <property name="maxUploadSize" value="20000000"/>
-        <property name="defaultEncoding" value="utf-8"></property>
-    </bean>
     <!-- 配置视图解析器 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

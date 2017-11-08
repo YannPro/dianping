@@ -2,7 +2,11 @@ package com.yann.controller.api;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.yann.dto.AdDto;
 import com.yann.entity.Ad;
+import com.yann.service.AdService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +24,24 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/api")
 public class ApiController {
-    @RequestMapping(value = "/homead",method = RequestMethod.GET)
+
+    @Autowired
+    private AdService adService;
+
+    @Value("${ad.number}")
+    private int adNumber;
+
+    /**
+     * 首页 —— 广告（超值特惠）
+     */
+    @RequestMapping(value = "/homead", method = RequestMethod.GET)
+    public List<AdDto> homead() {
+        AdDto adDto = new AdDto();
+        adDto.getPage().setPageNumber(adNumber);
+        return adService.searchByPage(adDto);
+    }
+
+/*    @RequestMapping(value = "/homead",method = RequestMethod.GET)
     public Ad homead() {
         Ad ad = new Ad();
         ad.setWeight(new Long(1));
@@ -43,6 +64,6 @@ public class ApiController {
         result.put("errno",0);
         result.put("msg","ok");
         return result;
-    }
+    }*/
 }
 

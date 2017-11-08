@@ -1,13 +1,11 @@
 package com.yann.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-/**
- * @author
- * @create 2017-10-28 14:17
- **/
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class Business {
+@JsonInclude(Include.NON_NULL)
+public class Business extends BaseBean {
+    
     private Long id;
     private String imgFileName;
     private String title;
@@ -20,11 +18,11 @@ public class Business {
     private String category;
     private Long starTotalNum;
     private Long commentTotalNum;
-
+    
     private Dic cityDic;
     private Dic categoryDic;
 
-
+    
     public Dic getCityDic() {
         return cityDic;
     }
@@ -97,16 +95,21 @@ public class Business {
     public void setCategory(String category) {
         this.category = category;
     }
-    public Long getStarTotalNum() {
-        return starTotalNum;
-    }
-    public void setStarTotalNum(Long starTotalNum) {
-        this.starTotalNum = starTotalNum;
-    }
-    public Long getCommentTotalNum() {
-        return commentTotalNum;
-    }
-    public void setCommentTotalNum(Long commentTotalNum) {
-        this.commentTotalNum = commentTotalNum;
+	public Long getStarTotalNum() {
+		return starTotalNum;
+	}
+	public void setStarTotalNum(Long starTotalNum) {
+		this.starTotalNum = starTotalNum;
+	}
+	public Long getCommentTotalNum() {
+		return commentTotalNum;
+	}
+	public void setCommentTotalNum(Long commentTotalNum) {
+		this.commentTotalNum = commentTotalNum;
+	}
+    @Override
+    public String toString() {
+        return "Ad[id:"+this.id+",title:"+this.title+",imgFileName:"+this.imgFileName+",subtitle:"+this.subtitle
+                +",price:"+this.price+",distance:"+this.distance+",number:"+this.number+",city:"+this.city+"]";
     }
 }

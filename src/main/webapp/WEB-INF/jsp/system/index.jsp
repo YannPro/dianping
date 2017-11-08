@@ -15,7 +15,7 @@
 	<body>
 		<!-- 蒙版DIV -->
 		<div id="mengban" style="display:none"></div>
-		<input type="hidden" id="basePath" value="${basePath}"/>
+		<input type="hidden" id="basePath" value=""/>
 		<div class="wishlistBox" style="display: none;left:550px;top:200px;">
 		    <div class="personRigTop persongBgimg" style="height:200px;width:480px;">
 		        <div class="persongRightTit" style="width:480px;">&nbsp;&nbsp;修改密码</div>
@@ -44,7 +44,7 @@
 		                    <tr>
 		                        <td class="left"></td>
 		                        <td class="submit">
-		                            <input id="submitVal" class="tabSub" value="提交" onclick="checkForm('${basePath}/comment');" type="button"/>
+		                            <input id="submitVal" class="tabSub" value="提交" onclick="checkForm('/comment');" type="button"/>
 		                            <input class="tabSub" value="关闭" onclick="closeDiv();" type="reset"/>
 		                        </td>
 		                    </tr>

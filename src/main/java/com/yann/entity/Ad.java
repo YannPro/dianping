@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
-public class Ad {
+public class Ad extends BaseBean{
     private Long id;
     private String title;
     private String imgFileName;
@@ -39,5 +39,10 @@ public class Ad {
     }
     public void setWeight(Long weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Bussiness[id:"+this.id+",title:"+this.title+",imgFileName:"+this.imgFileName+",link:"+this.link+",weight:"+this.weight+"]";
     }
 }

@@ -7,4 +7,44 @@
 		insert into ad(title,img_file_name,link,weight)
 		 values(#{title},#{imgFileName},#{link},#{weight})
 	</insert>
+	<select id="selectByPage" resultType="com.yann.entity.Ad" resultMap="Ad">
+		select id,title,img_file_name,link,weight from ad
+		<where>
+			<if test="title != null and title != ''">
+				title like '%' #{title} '%'
+			</if>
+		</where>
+		order by weight desc,id
+	</select>
+	<select id="selectById" resultType="com.yann.entity.Ad" resultMap="Ad">
+		select id,title,img_file_name,link,weight from ad where id=#{_parameter}
+	</select>
+	<delete id="delete">
+		delete from ad where id=#{_parameter}
+	</delete>
+	<update id="update">
+		update ad
+		<set>
+			<if test="title != null">
+				title = #{title},
+			</if>
+			<if test="imgFileName != null">
+				img_file_name = #{imgFileName},
+			</if>
+			<if test="link != null">
+				link = #{link},
+			</if>
+			<if test="weight != null">
+				weight = #{weight},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	<resultMap id="Ad" type="com.yann.entity.Ad">
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="imgFileName" column="img_file_name"/>
+		<result property="link" column="link"/>
+		<result property="weight" column="weight"/>
+	</resultMap>
 </mapper>

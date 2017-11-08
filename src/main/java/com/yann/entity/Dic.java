@@ -30,4 +30,8 @@ public class Dic {
     public void setWeight(Integer weight) {
         this.weight = weight;
     }
+    @Override
+    public String toString() {
+        return "Dic[type:"+this.type+",code:"+this.code+",name:"+this.name+",weight:"+this.weight+"]";
+    }
 }
