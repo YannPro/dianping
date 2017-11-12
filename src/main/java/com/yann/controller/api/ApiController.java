@@ -103,6 +103,16 @@ public class ApiController {
     }
 
     /**
+     * 订单列表
+     */
+    @RequestMapping(value = "/orderlist/{username}", method = RequestMethod.GET)
+    public List<OrdersDto> orderlist(@PathVariable("username") Long username) {
+        // 根据手机号取出会员ID
+        Long memberId = memberService.getIdByPhone(username);
+        return ordersService.getListByMemberId(memberId);
+    }
+
+    /**
      * 根据手机号下发短信验证码
      */
     @RequestMapping(value = "/sms", method = RequestMethod.POST)
@@ -165,6 +175,7 @@ public class ApiController {
         ApiCodeDto dto;
         // 1、校验token是否有效（缓存中是否存在这样一个token，并且对应存放的会员信息（这里指的是手机号）与提交上来的信息一致）
         Long phone = memberService.getPhone(orderForBuyDto.getToken());
+        logger.debug("phone:"+phone);
         if (phone != null && phone.equals(orderForBuyDto.getUsername())) {
             // 2、根据手机号获取会员主键
             Long memberId = memberService.getIdByPhone(phone);
