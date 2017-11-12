@@ -1,5 +1,9 @@
 package com.yann.cache;
 
+import com.yann.controller.api.ApiController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +18,10 @@ public class CodeCache {
 	private CodeCache() {
 		codeMap = new HashMap< Long,String>();
 	}
-	
+
+	private final static Logger logger = LoggerFactory
+			.getLogger(ApiController.class);
+
 	public static CodeCache getInstance() {
 		if(instance == null) {
 			synchronized(CodeCache.class){
@@ -33,9 +40,10 @@ public class CodeCache {
 	 * @return true：保存成功，false：保存失败，手机号已存在
 	 */
 	public boolean save(Long phone,String code) {
-		if(codeMap.containsKey(phone)) {
-			return false;
-		}
+//		if(codeMap.containsKey(phone)) {
+//			return true;
+//		}
+		logger.debug(code);
 		codeMap.put(phone, code);
 		return true;
 	}
@@ -46,6 +54,7 @@ public class CodeCache {
 	 * @return 验证码
 	 */
 	public String getCode(Long phone) {
+		logger.debug(codeMap.get(phone));
 		return codeMap.get(phone);
 	}
 }
