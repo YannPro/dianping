@@ -4,15 +4,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import com.yann.constant.ApiCodeEnum;
-import com.yann.dto.AdDto;
-import com.yann.dto.ApiCodeDto;
-import com.yann.dto.BusinessDto;
-import com.yann.dto.BusinessListDto;
+import com.yann.dto.*;
 import com.yann.entity.Ad;
 import com.yann.entity.Page;
 import com.yann.service.AdService;
 import com.yann.service.BusinessService;
 import com.yann.service.MemberService;
+import com.yann.service.OrdersService;
 import com.yann.util.CommonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +41,9 @@ public class ApiController {
 
     @Resource
     private MemberService memberService;
+
+    @Resource
+    private OrdersService ordersService;
 
     @Value("${ad.number}")
     private int adNumber;
@@ -102,6 +103,16 @@ public class ApiController {
     }
 
     /**
+     * 订单列表
+     */
+    @RequestMapping(value = "/orderlist/{username}", method = RequestMethod.GET)
+    public List<OrdersDto> orderlist(@PathVariable("username") Long username) {
+        // 根据手机号取出会员ID
+        Long memberId = memberService.getIdByPhone(username);
+        return ordersService.getListByMemberId(memberId);
+    }
+
+    /**
      * 根据手机号下发短信验证码
      */
     @RequestMapping(value = "/sms", method = RequestMethod.POST)
@@ -156,5 +167,30 @@ public class ApiController {
         return dto;
     }
 
+    /**
+     * 买单
+     */
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
+    public ApiCodeDto order(OrderForBuyDto orderForBuyDto) {
+        ApiCodeDto dto;
+        // 1、校验token是否有效（缓存中是否存在这样一个token，并且对应存放的会员信息（这里指的是手机号）与提交上来的信息一致）
+        Long phone = memberService.getPhone(orderForBuyDto.getToken());
+        logger.debug("phone:"+phone);
+        if (phone != null && phone.equals(orderForBuyDto.getUsername())) {
+            // 2、根据手机号获取会员主键
+            Long memberId = memberService.getIdByPhone(phone);
+            // 3、保存订单
+            OrdersDto ordersDto = new OrdersDto();
+            ordersDto.setNum(orderForBuyDto.getNum());
+            ordersDto.setPrice(orderForBuyDto.getPrice());
+            ordersDto.setBusinessId(orderForBuyDto.getId());
+            ordersDto.setMemberId(memberId);
+            ordersService.add(ordersDto);
+            dto = new ApiCodeDto(ApiCodeEnum.SUCCESS);
+            // 4、TODO 还有一件重要的事未做
+        } else {
+            dto = new ApiCodeDto(ApiCodeEnum.NOT_LOGGED);
+        }
+        return dto;
+    }
 }
-

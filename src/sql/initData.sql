@@ -56,7 +56,16 @@ INSERT INTO `dic` VALUES ('httpMethod', 'PUT', 'PUT', '3');
 -- ----------------------------
 INSERT INTO `member` VALUES ('1', '13912345678', null, null);
 
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+INSERT INTO `orders` (`id`,`business_id`,`member_id`,`num`,`comment_state`,`price`)
+VALUES (1, 1, 1,1,0,522);
+INSERT INTO `orders` (`id`,`business_id`,`member_id`,`num`,`comment_state`,`price`)
+VALUES (2, 6, 1,1,0,717);
 
+
+  `id``business_id``member_id``num``comment_state``price`
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
