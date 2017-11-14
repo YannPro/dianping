@@ -1,16 +1,9 @@
 package com.yann.controller.api;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import com.yann.constant.ApiCodeEnum;
 import com.yann.dto.*;
-import com.yann.entity.Ad;
-import com.yann.entity.Page;
-import com.yann.service.AdService;
-import com.yann.service.BusinessService;
-import com.yann.service.MemberService;
-import com.yann.service.OrdersService;
+import com.yann.service.*;
 import com.yann.util.CommonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,11 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author
@@ -44,6 +33,9 @@ public class ApiController {
 
     @Resource
     private OrdersService ordersService;
+
+    @Resource
+    private CommentService commentService;
 
     @Value("${ad.number}")
     private int adNumber;
@@ -192,5 +184,34 @@ public class ApiController {
             dto = new ApiCodeDto(ApiCodeEnum.NOT_LOGGED);
         }
         return dto;
+    }
+
+    /**
+     * 提交评论
+     */
+    @RequestMapping(value = "/submitComment", method = RequestMethod.POST)
+    public ApiCodeDto submitComment(CommentForSubmitDto dto) {
+        ApiCodeDto result;
+        // TODO 需要完成的步骤：
+        // 1、校验登录信息：token、手机号
+        Long phone = memberService.getPhone(dto.getToken());
+        if (phone != null && phone.equals(dto.getUsername())) {
+            // 2、根据手机号取出会员ID
+            Long memberId = memberService.getIdByPhone(phone);
+            // 3、根据提交上来的订单ID获取对应的会员ID，校验与当前登录的会员是否一致
+            OrdersDto ordersDto = ordersService.getById(dto.getId());
+            if(ordersDto.getMemberId().equals(memberId)) {
+                // 4、保存评论
+                commentService.add(dto);
+                result = new ApiCodeDto(ApiCodeEnum.SUCCESS);
+                // TODO
+                // 5、还有一件重要的事未做
+            } else {
+                result = new ApiCodeDto(ApiCodeEnum.NO_AUTH);
+            }
+        } else {
+            result = new ApiCodeDto(ApiCodeEnum.NOT_LOGGED);
+        }
+        return result;
     }
 }

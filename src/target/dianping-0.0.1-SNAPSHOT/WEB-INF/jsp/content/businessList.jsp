@@ -48,7 +48,7 @@
 								    <th>类别</th>
 								    <th>操作</th>
 								</tr>
-								<c:forEach items="${list}" var="item" varStatus="s">
+								<c:forEach items="${list}" var="item.data" varStatus="s">
 									<tr>
 										<td>${s.index + 1}</td>
 										<td>${item.title}</td>

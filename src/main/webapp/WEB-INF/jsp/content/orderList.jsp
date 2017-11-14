@@ -42,18 +42,28 @@
 								    <th>订单号</th>
 								    <th>金额(元)</th>
 								</tr>
-								
+
+								<c:forEach items="${list}" var="item" varStatus="s">
 									<tr>
-										<td>1</td>
-										<td>13912345678</td>
-										<td>123</td>
-										<td>668</td>
+										<td>${s.index + 1}</td>
+										<td>${item.title}</td>
+										<td>${item.subtitle}</td>
+										<td>${item.cityDic.name}</td>
+										<td>${item.categoryDic.name}</td>
+										<td>
+											<a href="javascript:void(0);" onclick="modifyInit('${item.id}')">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+												<%--
+                                                                                            <a href="javascript:void(0);" onclick="remove('${item.id}')">删除</a>
+                                                --%>
+										</td>
 									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 						
 						<!-- 分页 -->
-						
+
+						<t:page jsMethodName="search" page="${searchParam.page}"></t:page>
 
 
 

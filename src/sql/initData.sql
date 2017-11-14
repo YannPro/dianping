@@ -13,7 +13,7 @@ INSERT INTO `ad` VALUES ('9', '电影', '1495353700766_ad_5.png', 'http://www.im
 INSERT INTO `ad` VALUES ('10', '旅游热线', '1495353735839_ad_6.png', 'http://www.imooc.com/wap/index', '1');
 INSERT INTO `ad` VALUES ('11', '暑假5折', '1495353501938_ad_1.png', 'http://www.imooc.com/wap/index', '6');
 INSERT INTO `ad` VALUES ('12', '特价出国', '1495353568008_ad_2.png', 'http://www.imooc.com/wap/index', '5');
-INSERT INTO `ad` VALUES ('13', '亮亮车', '1495353623949_ad_3.png', 'http://www.imooc.com/wap/index', '4');INSERT INTO `ad` VALUES ('1', '暑假5折', '1495353501938_ad_1.png', 'http://www.imooc.com/wap/index', '6');
+INSERT INTO `ad` VALUES ('13', '亮亮车', '1495353623949_ad_3.png', 'http://www.imooc.com/wap/index', '4');
 INSERT INTO `ad` VALUES ('14', '特价出国', '1495353568008_ad_2.png', 'http://www.imooc.com/wap/index', '5');
 INSERT INTO `ad` VALUES ('15', '亮亮车', '1495353623949_ad_3.png', 'http://www.imooc.com/wap/index', '4');
 
@@ -65,7 +65,6 @@ INSERT INTO `orders` (`id`,`business_id`,`member_id`,`num`,`comment_state`,`pric
 VALUES (2, 6, 1,1,0,717);
 
 
-  `id``business_id``member_id``num``comment_state``price`
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------

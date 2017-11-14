@@ -19,7 +19,7 @@ import java.util.List;
 public class SessionController {
 	@Autowired
 	private HttpSession session;
-	
+
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/menus",method = RequestMethod.GET)
 	@ResponseBody

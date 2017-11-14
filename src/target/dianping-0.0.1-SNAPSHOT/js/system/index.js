@@ -5,6 +5,7 @@ $(function() {
 	common.ajax({
 			url : $("#basePath").val() + "/session/menus",
 			success : function(data) {
+				console.log(data);
 				if(data && data.length > 0) {
 					$.each(data,function(i,value) {
 						if(!menuMap[value.parentId]) {
