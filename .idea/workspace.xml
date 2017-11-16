@@ -6,23 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="045806bf-13d1-45e1-a2db-3f9053fe39bc" name="Default" comment="">
+    <list default="true" id="045806bf-13d1-45e1-a2db-3f9053fe39bc" name="Default" comment="2017-11-16 21:00">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/classes/com/yann/entity/Action.class" afterPath="$PROJECT_DIR$/src/target/classes/com/yann/entity/Action.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/classes/com/yann/entity/User.class" afterPath="$PROJECT_DIR$/src/target/classes/com/yann/entity/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/WEB-INF/classes/com/yann/entity/Action.class" afterPath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/WEB-INF/classes/com/yann/entity/Action.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/WEB-INF/classes/com/yann/entity/User.class" afterPath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/WEB-INF/classes/com/yann/entity/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/controller/system/AuthController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/controller/system/AuthController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/controller/system/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/controller/system/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/dto/OrdersDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/dto/OrdersDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/entity/Action.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/entity/Action.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/entity/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/yann/util/CommonUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/yann/util/CommonUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/commentList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/commentList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/orderList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/content/orderList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/system/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/system/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/classes/mapper/UserMapper.xml" afterPath="$PROJECT_DIR$/src/target/classes/mapper/UserMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/WEB-INF/classes/mapper/UserMapper.xml" afterPath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/WEB-INF/classes/mapper/UserMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/WEB-INF/jsp/content/commentList.jsp" afterPath="$PROJECT_DIR$/src/target/dianping-0.0.1-SNAPSHOT/WEB-INF/jsp/content/commentList.jsp" />
@@ -870,7 +859,7 @@
       <workItem from="1510560950157" duration="42000" />
       <workItem from="1510567604875" duration="68000" />
       <workItem from="1510656242407" duration="9391000" />
-      <workItem from="1510800141498" duration="26077000" />
+      <workItem from="1510800141498" duration="26111000" />
     </task>
     <task id="LOCAL-00001" summary="dianping">
       <created>1509167314549</created>
@@ -970,11 +959,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510822740694</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="2017-11-16 21:00">
+      <created>1510838124566</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1510838124566</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143292000" />
+    <option name="totallyTimeSpent" value="143326000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1067,7 +1063,8 @@
     <MESSAGE value="完成登录模块，添加了用户验证码验证和后台生成token功能" />
     <MESSAGE value="2017-11-12 17:00" />
     <MESSAGE value="2017-11-16 17:00" />
-    <option name="LAST_COMMIT_MESSAGE" value="2017-11-16 17:00" />
+    <MESSAGE value="2017-11-16 21:00" />
+    <option name="LAST_COMMIT_MESSAGE" value="2017-11-16 21:00" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
