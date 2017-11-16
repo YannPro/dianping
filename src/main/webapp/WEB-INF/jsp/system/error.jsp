@@ -9,12 +9,14 @@
         <script type="text/javascript">
         	$(function () {
         		common.showMessage('${pageCode.msg}');
+        		/*iframe解决session超时刷新时 会在当前iframe局部跳转到登陆界面
+        		而不是整个浏览器跳转到登陆界面*/
         		var topWindow = window;
         		while(topWindow.parent != topWindow) {
         			topWindow = topWindow.parent;
         		}
         		topWindow.location.href = "/login";
-        	});
+            });
 		</script>
     </head>
     <body>

@@ -27,6 +27,7 @@ public class MenuServiceImpl implements MenuService {
 		List<MenuForZtreeDto> result = new ArrayList<MenuForZtreeDto>();
 		List<Menu> menuList = menuDao.selectWithAction(new Menu());
 		for(Menu menu : menuList) {
+			System.out.println(menu.toString());
 			MenuForZtreeDto menuForZtreeDto = new MenuForZtreeDto();
 			result.add(menuForZtreeDto);
 			BeanUtils.copyProperties(menu, menuForZtreeDto);

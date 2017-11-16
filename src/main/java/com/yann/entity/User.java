@@ -47,4 +47,9 @@ public class User {
 	public void setGroupId(Long groupId) {
 		this.groupId = groupId;
 	}
+
+	@Override
+	public String toString() {
+		return "User[id:"+this.id+",name:"+this.name+",chName:"+this.chName+",groupId:"+this.groupId+"]";
+	}
 }

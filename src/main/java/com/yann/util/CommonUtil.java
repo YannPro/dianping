@@ -53,6 +53,8 @@ public class CommonUtil {
 	 * @return true:包含，false：不包含
 	 */
 	public static boolean contains(HttpSession session,String url,String method) {
+		System.out.println("url1:"+url);
+		System.out.println("method:"+method);
 		Object obj = session.getAttribute(SessionKeyConst.ACTION_INFO);
 		if(obj != null) {
 			@SuppressWarnings("unchecked")
