@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 
 	public boolean validate(UserDto userDto) {
+		System.out.println("userDtotyjyjy:"+userDto);
 		if (userDto != null && !CommonUtil.isEmpty(userDto.getName()) && !CommonUtil.isEmpty(userDto.getPassword())) {
 			User user = new User();
 			BeanUtils.copyProperties(userDto, user);

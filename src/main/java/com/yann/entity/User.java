@@ -50,6 +50,6 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User[id:"+this.id+",name:"+this.name+",chName:"+this.chName+",groupId:"+this.groupId+"]";
+		return "User[id:"+this.id+",name:"+this.name+",password:"+this.password+",chName:"+this.chName+",groupId:"+this.groupId+"]";
 	}
 }

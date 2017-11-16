@@ -5,7 +5,6 @@ $(function() {
 	common.ajax({
 			url : $("#basePath").val() + "/session/menus",
 			success : function(data) {
-				console.log(data);
 				if(data && data.length > 0) {
 					$.each(data,function(i,value) {
 						if(!menuMap[value.parentId]) {
@@ -13,6 +12,7 @@ $(function() {
 						}
 						menuMap[value.parentId].push(value);
 					});
+					console.log(menuMap)
 					initMenu();
 				}
 			}
@@ -49,8 +49,8 @@ function clickMenu(element,id) {
 	$("#menuDiv").children().attr("class","");
 	// 将当前单击的节点置为[选中样式]
 	$(element).attr("class","on");
-	// 加载子菜单内容
-	initSubMenu(id);
+    // 加载子菜单内容
+    initSubMenu(id);
 }
 
 /**

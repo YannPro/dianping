@@ -57,9 +57,10 @@ public class CommonUtil {
 		System.out.println("method:"+method);
 		Object obj = session.getAttribute(SessionKeyConst.ACTION_INFO);
 		if(obj != null) {
-			@SuppressWarnings("unchecked")
+			System.out.println("actionDtoujyj:");
 			List<ActionDto> dtoList = (List<ActionDto>)obj;
 			for(ActionDto actionDto : dtoList) {
+				System.out.println("actionDto:"+actionDto.toString());
 				if(!isEmpty(actionDto.getMethod()) && !actionDto.getMethod().equals(method)) {
 					continue;
 				}

@@ -59,18 +59,6 @@
 				<t:page jsMethodName="search" page="${searchParam.page}"></t:page>
 
 
-
-
-				<script type="text/javascript">
-                    function transCurrentPage(currentPage) {
-                        var rule = /^[0-9]*[1-9][0-9]*$/;
-                        if(!rule.test(currentPage)) {
-                            currentPage = 1;
-                        }
-                        eval("search(currentPage)");
-                    }
-				</script>
-
 			</div>
 		</div>
 	</div>

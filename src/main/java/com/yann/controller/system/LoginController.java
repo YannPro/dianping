@@ -61,6 +61,7 @@ public class LoginController {
 	 */
 	@RequestMapping("/validate")
 	public String validate(UserDto userDto, RedirectAttributes attr) {
+		System.out.println("userDto:tyhjyt"+userDto);
 		if (userService.validate(userDto)) {
 			session.setAttribute(SessionKeyConst.USER_INFO, userDto);
 			GroupDto groupDto = groupService.getByIdWithMenuAction(userDto.getGroupId());

@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="/comment/css/all.css">
-		<link rel="stylesheet" type="text/css" href="/comment/css/pop.css">
-		<link rel="stylesheet" type="text/css" href="/comment/css/main.css">
-		<script type="text/javascript" src="/comment/js/common/jquery-1.8.3.js"></script>
-		<script type="text/javascript" src="/comment/js/content/adList.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/all.css">
+		<link rel="stylesheet" type="text/css" href="/css/pop.css">
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<script type="text/javascript" src="/js/common/jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="/js/content/orderList.js"></script>
 	</head>
 	<body style="background: #e1e9eb;">
 		<form action="/comment/ad/search" id="mainForm" method="post">
@@ -60,35 +62,12 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						
+
 						<!-- 分页 -->
 
 						<t:page jsMethodName="search" page="${searchParam.page}"></t:page>
 
 
 
-<script type="text/javascript">
-	function transCurrentPage(currentPage) {
-		var rule = /^[0-9]*[1-9][0-9]*$/;
-		if(!rule.test(currentPage)) {
-			currentPage = 1;
-		}
-		eval("search(currentPage)");
-	}
-</script>
-
-<div class="page fix">
-	<a href="javascript:transCurrentPage('1');" class="first">首页</a>
-	<a href="javascript:transCurrentPage('0');" class="pre">上一页</a>
-	当前第<span>1/1</span>页
-	<a href="javascript:transCurrentPage('2');" class="next">下一页</a>
-	<a href="javascript:transCurrentPage('1');" class="last">末页</a>
-	跳至 &nbsp;<input id="currentPageText" value="1" class="allInput w28" type="text">&nbsp;页 &nbsp;
-	<a href="javascript:transCurrentPage($('#currentPageText').val());" class="go">GO</a>
-</div>
-					</div>
-				</div>
-			</div>
-		</form>
-	
-</body></html>
+</body>
+</html>

@@ -38,4 +38,9 @@ public class Action {
 	public void setMethod(String method) {
 		this.method = method;
 	}
+	@Override
+	public String toString() {
+		return "Action[id:"+this.id+",name:"+this.name+",url:"+this.url+",menuId:"+this.menuId
+				+",method:"+this.method+"]";
+	}
 }

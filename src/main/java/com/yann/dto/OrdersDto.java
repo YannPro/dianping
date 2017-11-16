@@ -9,7 +9,7 @@ public class OrdersDto extends Orders {
     private String img;
     private String title;
     private Integer count;
-    
+
     public String getImg() {
         return img;
     }
